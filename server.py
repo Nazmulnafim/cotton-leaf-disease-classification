@@ -5,10 +5,10 @@ import numpy as np
 from PIL import Image
 import os
 from waitress import serve
-
+from flask_cors import CORS
 
 app = flask.Flask(__name__)
-
+CORS(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
