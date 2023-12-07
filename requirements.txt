@@ -10,3 +10,4 @@ zipp==3.10.0
 tensorflow
 pillow
 waitress
+flask-cors
