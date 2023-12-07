@@ -61,7 +61,7 @@ def handle_request():
 
     # Load the pre-trained model
     loaded_model = models.load_model(
-        "https://github.com/Nazmulnafim/cotton-leaf-disease-classification/blob/main/model_mobilenetv2_densenet201_9941_acc.hdf5")
+        "model_mobilenetv2_densenet201_9941_acc.hdf5")
 
     # Make predictions
     predicted_class, confidence = model_predict(loaded_model, resized_image)
