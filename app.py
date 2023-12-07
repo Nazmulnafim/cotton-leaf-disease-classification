@@ -10,12 +10,13 @@ from flask_cors import CORS
 app = flask.Flask(__name__)
 CORS(app)
 
+# @app.route('/', methods=['GET', 'POST'])
+# def welcome():
+#     return "Hello World"
+
+#predict/
+
 @app.route('/', methods=['GET', 'POST'])
-def welcome():
-    return "Hello World"
-
-
-@app.route('/predict/', methods=['GET', 'POST'])
 def handle_request():
     def model_predict(model, image):
         x = np.array(image)
