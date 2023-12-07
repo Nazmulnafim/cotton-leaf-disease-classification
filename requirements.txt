@@ -10,5 +10,4 @@ zipp==3.10.0
 tensorflow
 pillow
 waitress
-tensorflow-gpu
 tensorboard
