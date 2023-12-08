@@ -11,3 +11,5 @@ tensorflow
 pillow
 waitress
 flask-cors
+streamlit
+keras
