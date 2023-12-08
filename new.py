@@ -104,4 +104,4 @@ def handle_request():
 # Run the Streamlit app
 if __name__ == '__main__':
     welcome()
-    handle_request()"
+    handle_request()
