@@ -9,11 +9,11 @@ app = Flask(__name__)
 # Load the pre-trained model
 loaded_model = models.load_model("model_mobilenetv2_densenet201_9941_acc.hdf5")
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def welcome():
     return "Cotton Leaf Disease Classification"
 
-@app.route('/predict/', methods=['POST'])
+@app.route('/predict/', methods=['GET', 'POST'])
 def handle_request():
     uploaded_file = request.files['file']
 
