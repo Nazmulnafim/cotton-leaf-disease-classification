@@ -6,11 +6,9 @@ from PIL import Image
 # Load the pre-trained model
 loaded_model = models.load_model("model_mobilenetv2_densenet201_9941_acc.hdf5")
 
-@st.route('/')
 def welcome():
     st.write("Hello World")
 
-@st.route('/predict/')
 def handle_request():
     uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
@@ -48,4 +46,5 @@ def handle_request():
 
 # Run the Streamlit app
 if __name__ == '__main__':
-    st.run()
+    welcome()
+    handle_request()
