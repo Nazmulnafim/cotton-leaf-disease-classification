@@ -15,4 +15,4 @@ streamlit
 keras
 numpy
 streamlit_webrtc
-cv2
+opencv-python
