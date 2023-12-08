@@ -1,5 +1,4 @@
-from flask import Flask, render_template_string, request
-import streamlit as st
+from flask import Flask, request, jsonify
 from tensorflow.keras import models
 import numpy as np
 from PIL import Image
@@ -13,15 +12,21 @@ loaded_model = models.load_model("model_mobilenetv2_densenet201_9941_acc.hdf5")
 def welcome():
     return "Cotton Leaf Disease Classification"
 
-@app.route('/predict/', methods=['GET', 'POST'])
+@app.route('/predict/', methods=['POST'])
 def handle_request():
-    uploaded_file = request.files['file']
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file part in the request'}), 400
 
-    if uploaded_file is not None:
+        uploaded_file = request.files['file']
+
+        if uploaded_file.filename == '':
+            return jsonify({'error': 'No selected file'}), 400
+
         # Load and preprocess the image
         img = Image.open(uploaded_file).convert('RGB')
         resized_image = img.resize((224, 224))
-        
+
         # Model prediction
         x = np.array(resized_image)
         x = x / 255
@@ -48,6 +53,9 @@ def handle_request():
             'Predicted class': predicted_class,
             'confidence': confidence
         }
+    except Exception as e:
+        print(f"Error processing request: {e}")
+        return jsonify({'error': 'An error occurred while processing the request'}), 500
 
 if __name__ == '__main__':
     # Run with Gunicorn
