@@ -10,9 +10,6 @@ zipp==3.10.0
 tensorflow
 pillow
 waitress
-flask-cors
 streamlit
 keras
 numpy
-streamlit_webrtc
-opencv-python
