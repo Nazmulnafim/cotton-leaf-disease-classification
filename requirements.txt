@@ -13,3 +13,4 @@ waitress
 flask-cors
 streamlit
 keras
+numpy
